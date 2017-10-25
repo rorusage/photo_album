@@ -1,0 +1,20 @@
+- if @photo.errors.present?
+  %ul
+    - @photo.errors.each do |error, message|
+      %li= "#{error.capitalize} #{message}"
+
+.form.container
+  = form_for @photo do |f|
+    .form-group
+      = f.label :title, "Title"
+      = f.text_field :title, class: "form-control"
+    .form-group
+      = f.label :date, "Date"
+      = f.text_field :date, class: "form-control"
+    .form-group
+      = f.label :description, "Description"
+      = f.text_field :description, class: "form-control"
+    .form-group
+      = f.label :file_location, "File location"
+      = f.file_field :file_location, class: "form-control"
+    = f.submit
